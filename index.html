@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Authorized Security Test — Intility ASM</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            max-width: 720px;
+            margin: 60px auto;
+            padding: 0 24px;
+            line-height: 1.6;
+            color: #1a1a1a;
+            background: #fafafa;
+        }
+        .banner {
+            background: #fff4e5;
+            border-left: 4px solid #f59e0b;
+            padding: 16px 20px;
+            margin-bottom: 32px;
+            border-radius: 4px;
+        }
+        .banner strong { color: #92400e; }
+        h1 { font-size: 1.5rem; margin-bottom: 8px; }
+        dt { font-weight: 600; margin-top: 12px; }
+        dd { margin-left: 0; color: #444; }
+        code {
+            background: #eee;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-size: 0.9em;
+        }
+        footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+            font-size: 0.85rem;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="banner">
+        <strong>⚠ Authorized security test in progress.</strong>
+        This page is a proof-of-concept hosted as part of a sanctioned attack surface management engagement with Intility. No malicious activity is occurring. The page will be removed immediately upon completion of the test.
+    </div>
+
+    <h1>Subdomain Takeover PoC — <code>docs.developers.intility.com</code></h1>
+
+    <p>This page demonstrates that the hostname <code>docs.developers.intility.com</code> can be served by a GitHub Pages site outside the Intility organization, due to a dangling CNAME record combined with absent organization-level domain verification.</p>
+
+    <dl>
+        <dt>Engagement</dt>
+        <dd>Intility internal ASM — [REPLACE WITH TICKET/ENGAGEMENT REFERENCE]</dd>
+
+        <dt>Tester</dt>
+        <dd>[REPLACE WITH YOUR NAME] — [REPLACE WITH YOUR INTILITY EMAIL]</dd>
+
+        <dt>Date claimed</dt>
+        <dd>[REPLACE WITH UTC TIMESTAMP, e.g. 2026-05-13T14:32:00Z]</dd>
+
+        <dt>Planned release</dt>
+        <dd>Within 24 hours of confirmation, or sooner on request.</dd>
+
+        <dt>Vulnerable component</dt>
+        <dd>CNAME <code>docs.developers.intility.com → intility.github.io</code> with no claiming repository in the Intility GitHub organization, and no covering verified domain at the org level.</dd>
+
+        <dt>Recommended remediation</dt>
+        <dd>
+            (1) Verify <code>intility.com</code> at the GitHub organization level (Settings → Verified and approved domains). This protects all current and future <code>*.intility.com</code> subdomains. <br>
+            (2) Remove or repoint the dangling CNAME record. <br>
+            (3) Audit all DNS records pointing to third-party hosting providers (github.io, herokuapp.com, azurewebsites.net, s3.amazonaws.com, etc.) for similar dangling references.
+        </dd>
+    </dl>
+
+    <footer>
+        If you found this page unexpectedly and have concerns, please contact Intility Security at <strong>security@intility.com</strong> (or replace with your actual security contact). This page contains no tracking, no data collection, and no executable content beyond static HTML.
+    </footer>
+</body>
+</html>
